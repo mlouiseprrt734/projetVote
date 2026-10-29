@@ -50,3 +50,18 @@ def verify_location():
         "allowed": is_allowed,
         "distanceMeters": round(distance)
     })
+
+##Connexion réseau
+def is_connected_to_site_network():
+    user_ip = request.remote_addr
+
+    #adresse IP localhost
+    if user_ip == "127.0.0.1" :
+        is_connected = True
+    else:
+        is_connected = False
+
+    return jsonify({
+        "connected": is_connected
+    })
+

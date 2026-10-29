@@ -14,3 +14,4 @@ bp.add_url_rule("/presence-control", "presence_control", main_controller.presenc
 
 #contrôle de présence
 bp.add_url_rule("/verify-location", "verify_location", access_control_controller.verify_location, methods=["POST"])
+bp.add_url_rule("/verify-network", "is_connected_to_site_network", access_control_controller.is_connected_to_site_network, methods=["GET"])
