@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Page d'accueil</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="containerhome">
+            <img class="logovotehome" src="../static/media/logovote.jpg" alt="image d'une main plaçant un vote dans une urne">
+
+            <p class="hometxt1">Plateforme de vote électronique sécurisée</p>
+
+            <h1 class="hometitle1">Bienvenue</h1>
+
+            <p class="hometxt2">Participez aux scrutins depuis votre smartphone, en toute sécurité et depuis le lieu de vote.</p>
+
+            <a href="{{ url_for('main.loginpage') }}"><button class="buttonlogin">Se connecter ➜</button></a>
+            <a href="#"><button class="buttonmore">En savoir plus</button></a>
+
+            <hr>
+
+            <img class="logodochome" src="../static/media/document.png" alt="image PNG de document">
+            <a class="RGPD" href="#">Politique de confidentialité et RGPD ➜</a>
+        </div>
+    </body>
+</html>

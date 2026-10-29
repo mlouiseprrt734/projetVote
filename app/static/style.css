@@ -1,0 +1,419 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background-color: #ffffff;
+}
+
+/** PARTIE CSS POUR LA PAGE D'ACCUEIL **/
+body > .containerhome {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px 25px;
+    text-align: center;
+}
+
+.logovotehome{
+    display: block;
+    margin: 0 auto 16px;
+    height: 120px;
+    width: 120px;
+}
+
+.hometxt1{
+    color: #6e7388eb;
+    font-size: 22px;
+    font-weight: 470;
+}
+
+.hometitle1{
+    color: #0c1556;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.hometxt2{
+    color: #6e7388eb;
+    font-size: 16px;
+}
+
+.buttonlogin{
+    background-color: #ff8000;
+    height: 40px;
+    width: 250px;
+    border-radius: 10px;
+    border-color: #ffff;
+    color: #ffff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+.buttonlogin:hover{
+    transform: scale(1.05);
+}
+
+.buttonmore{
+    background-color: #ffffff;
+    height: 40px;
+    width: 250px;
+    border-radius: 10px;
+    border-color: #0b214d;
+    color: #0b214d;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+.buttonmore:hover{
+    transform: scale(1.05);
+}
+
+hr{
+    margin-bottom: 5%;
+}
+
+.logodochome{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    padding: 0.5%;
+    background-color: #74dcf7;
+    object-fit: contain;
+}
+.RGPD{
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/** PARTIE CSS POUR LA PAGE DE CONNEXION **/
+body > .containerlogin {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.topbar{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logovoteapp{
+    display: block;
+    margin: 6px;
+    height: 60px;
+    width: 60px;
+}
+
+.backbtn{
+    text-decoration: none;
+    color:#0c4fd4;
+    font-weight: 500;
+}
+.backbtn:hover{
+    transform: scale(1.05);
+}
+
+.logintxt1, .logintitle1{
+    text-align: left;
+}
+.logintitle1{
+    color: #0b214d;
+    font-size: 25px;
+}
+.logintxt1{
+    color: #6e7388eb;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.empreinte{
+    display: block;
+    margin: 0 auto 16px;
+    height: 110px;
+    width: 110px;
+    background-color: #51dfff7c;
+    border-radius: 100%;
+    padding: 20px;
+    object-fit: contain;
+    margin-bottom: 7%;
+    margin-top: 7%;
+}
+.empreinte:hover{
+    transform: scale(1.05);
+}
+
+.buttonpasskey{
+    background-color: #ff8000;
+    height: 50px;
+    width: 260px;
+    border-radius: 10px;
+    border-color: #ffff;
+    color: #ffff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10%;
+}
+.buttonpasskey:hover{
+    transform: scale(1.05);
+}
+
+.infobulle{
+    background-color: #7c97ce43;
+    border-radius: 10px;
+    padding: 10px;
+}
+.infobulle>img{
+    height: 30px;
+    width: 30px;
+}
+.infobulle>p{
+    font-size: 13px;
+    color: #0b214d;
+    font-weight: 500;
+}
+
+
+/** PARTIE CSS POUR LA PAGE DE NAVIGATION **/
+body > .containernav{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    text-align: center;
+}
+.headernav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff8000;
+}
+.headernav>p{
+    color:#ffffff;
+    font-weight: 500;
+}
+.logonav{
+    display: block;
+    margin: 6px;
+    height: 60px;
+    width: 60px;
+}
+.crossnav{
+    display: block;
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+}
+.returnnav{
+    margin-left: 30%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.crossnav:hover{
+    transform: scale(1.05);
+}
+
+.btnnavcontainer{
+    display: flex;
+    flex-direction: column;
+}
+.btnnavcontainer > a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 0 15px;
+    height: 45px;
+    font-weight: 500;
+    text-decoration: none;
+    color: inherit;
+    color:#0b214d;
+}
+.btnnavcontainer > a:hover {
+    background-color: #ffc58eb0;
+    border: none;
+    border-left: 4px solid #ff8000;
+}
+
+.navimg{
+    display: block;
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+}
+
+.btnnavcontainer>hr{
+    width: 80%;
+    margin: 10px auto;
+    border: none;
+    border-top: 1px solid #cccccc;
+}
+
+/** PARTIE CSS POUR LE MENU DES SCRUTINS **/
+body > .ballotcontainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px 25px;
+    text-align: center;
+}
+
+/** PARTIE CSS POUR LE MENU DES RESULTATS **/
+body > .resultscontainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px 25px;
+    text-align: center;
+}
+
+/** PARTIE CSS POUR LE MENU DES ORGANISATEURS **/
+body > .organisationcontainer {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px 25px;
+    text-align: center;
+}
+
+
+/** PARTIE TEST POUR SIDENAV **/
+/** PARTIE CSS POUR LE MENU DE NAVIGATION **/
+
+.sidetoggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sideburger{
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 44px;
+    height: 44px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    background-color: #ff8000;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.sideburger>span{
+    display: block;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+.sideoverlay{
+    position: fixed;
+    inset: 0;
+    z-index: 950;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    cursor: pointer;
+}
+
+.sidemenu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 50%;
+    min-width: 240px;
+    max-width: 400px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidetoggle:checked ~ .sideoverlay {
+    opacity: 1;
+    visibility: visible;
+}
+.sidetoggle:checked ~ .sidemenu {
+    transform: translateX(0);
+}
+body:has(.sidetoggle:checked) {
+    overflow: hidden;
+}
+
+.sideheader{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #ff8000;
+}
+.sideheader>p{
+    flex: 1;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 500;
+}
+.sidelogo{
+    height: 45px;
+    width: 45px;
+}
+.sideclose{
+    cursor: pointer;
+}
+.sideclose>img{
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+.sideclose:hover>img{
+    transform: scale(1.1);
+}
+
+.sidelinks{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+.sidelinks>a{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 45px;
+    margin: 4px 0;
+    padding: 0 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #0b214d;
+    border-left: 4px solid transparent;
+}
+.sidelinks>a:hover,
+.sidelinks>a.active {
+    background-color: #ffc58eb0;
+    border-left-color: #ff8000;
+}
+.sideicon{
+    height: 26px;
+    width: 26px;
+    flex-shrink: 0;
+}
+.sidelinks>hr{
+    width: 80%;
+    margin: 10px auto;
+    border: none;
+    border-top: 1px solid #cccccc;
+}
+
+.sidecontent{
+    padding-top: 70px;
+}

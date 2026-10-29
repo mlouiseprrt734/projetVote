@@ -1,0 +1,32 @@
+<input type="checkbox" id="sidetoggle" class="sidetoggle">
+
+        <label for="sidetoggle" class="sideburger" aria-label="Ouvrir le menu">
+            <span></span><span></span><span></span>
+        </label>
+
+        <label for="sidetoggle" class="sideoverlay"></label>
+
+        <nav class="sidemenu" aria-label="Menu principal">
+            <div class="sideheader">
+                <img class="sidelogo" src="{{ url_for('static', filename='media/logovoteblanc.png') }}" alt="Logo Vote U">
+                <p>Vote U</p>
+                <label for="sidetoggle" class="sideclose" aria-label="Fermer le menu">
+                    <img src="{{ url_for('static', filename='media/croix_blanc.png') }}" alt="">
+                </label>
+            </div>
+
+            <div class="sidelinks">
+                <a href="#" class="{{ 'active' if request.endpoint == 'main.homepage' }}">
+                    <img class="sideicon" src="{{ url_for('static', filename='media/home.png') }}" alt="">Accueil</a>
+                <a href="{{ url_for('main.ballotpage') }}" class="{{ 'active' if request.endpoint == 'main.ballotpage' }}">
+                    <img class="sideicon" src="{{ url_for('static', filename='media/document.png') }}" alt="">Mes scrutins</a>
+                <a href="{{ url_for('main.resultspage') }}" class="{{ 'active' if request.endpoint == 'main.resultspage' }}">
+                    <img class="sideicon" src="{{ url_for('static', filename='media/results.png') }}" alt="">Résultats</a>
+                <hr>
+                <a href="{{ url_for('main.organisationpage') }}" class="{{ 'active' if request.endpoint == 'main.organisationpage' }}">
+                    <img class="sideicon" src="{{ url_for('static', filename='media/silhouette.png') }}" alt="">Espace organisateur</a>
+                <hr>
+                <a href="{{ url_for('main.homepage') }}">
+                    <img class="sideicon" src="{{ url_for('static', filename='media/disconnect.png') }}" alt="">Se déconnecter</a>
+            </div>
+        </nav>

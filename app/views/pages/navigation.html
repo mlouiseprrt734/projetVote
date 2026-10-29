@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Page de navigation</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="containernav">
+            <div class="headernav">
+                <img class="logonav" src="../static/media/logovoteblanc.png" alt="image d'une main plaçant un vote dans une urne">
+                <p>Vote U</p>
+                <a class="returnnav" href="{{ url_for('main.loginpage') }}"><img class="crossnav" src="../static/media/croix_blanc.png" alt="image d'une croix"></a>
+            </div>
+            <div class="btnnavcontainer">
+                <a href="#"><img class="navimg" src="../static/media/home.png">Accueil</a>
+                <a href="{{ url_for('main.ballotpage') }}"><img class="navimg" src="../static/media/document.png">Mes scrutins</a>
+                <a href="{{ url_for('main.resultspage') }}"><img class="navimg" src="../static/media/results.png">Résultats</a>
+                <hr>
+                <a href="{{ url_for('main.organisationpage') }}"><img class="navimg" src="../static/media/silhouette.png">Espace organisateur</a>
+                <hr>
+                <a href="{{ url_for('main.homepage') }}"><img class="navimg" src="../static/media/disconnect.png">Se déconnecter</a>
+            </div>
+        </div>
+    </body>
+</html>

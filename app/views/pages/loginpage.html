@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Page d'accueil</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="containerlogin">
+            <div class="topbar">
+                <a class="backbtn" href="{{ url_for('main.homepage') }}">🠔 Retour</a>
+                <img class="logovoteapp" src="../static/media/logovote.jpg" alt="image d'une main plaçant un vote dans une urne">
+            </div>
+            
+
+            <h1 class="logintitle1">Connexion</h1>
+            <p class="logintxt1">Connectez-vous avec votre passkey pour accéder aux scrutins</p>
+
+            <img class="empreinte" src="../static/media/empreinte.png" alt="image empreinte digitale pour connexion">
+
+            <a href="{{ url_for('main.navigation') }}"><button class="buttonpasskey">Se connecter avec ma passkey</button></a>
+
+            <div class="infobulle">
+                <img class="infoimg" src="../static/media/infobulle.png" alt="image infobulle">
+                <p class="txtinfo">Utilisez la même méthode d'authentification que celle de votre appareil (empreinte digitale, code ou clé de sécurité)</p>
+            </div>
+        </div>
+    </body>
+</html>
