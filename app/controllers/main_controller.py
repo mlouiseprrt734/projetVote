@@ -17,3 +17,6 @@ def resultspage():
 
 def organisationpage():
     return render_template("pages/organisationpage.html")
+
+def displayTOTP():
+    return render_template("pages/displayTOTP.html")

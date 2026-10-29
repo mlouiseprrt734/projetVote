@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projet Vote - Code temporaire</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/static/style_displayTOTP.css">
 </head>
 
 <body>
   <div class="vote-container">
 
     <h1>Vote électronique</h1>
-    <h2>Université de Bordeaux</h2>
 
     <p><strong>Lieu :</strong> Salle de vote A12</p>
     <p><strong>Date :</strong> 27 octobre 2026</p>
@@ -23,11 +22,7 @@
 
     <div id="code">482 951</div>
 
-    <button id="copyButton" type="button">
-      Copier le code
-    </button>
-
-    <p id="timer">Expire dans 00:30</p>
+    <p id="timer">Expire dans 00:15</p>
 
     <hr>
 
@@ -35,8 +30,8 @@
 
     <ol>
       <li>Accéder à l'application de vote</li>
-      <li>S'authentifier avec ses identifiants</li>
-      <li>Saisir le code temporaire affiché</li>
+      <li>S'authentifier avec sa passkey</li>
+      <li>Saisir le code temporaire affiché ci-dessus</li>
       <li>Effectuer son vote</li>
     </ol>
 
@@ -51,6 +46,6 @@
 
   </div>
 
-  <script src="script.js"></script>
+  <script src="/static/displayTOTP.js"></script>
 </body>
 </html>

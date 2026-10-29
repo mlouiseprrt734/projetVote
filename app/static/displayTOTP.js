@@ -1,5 +1,5 @@
-// Durée initiale en secondes (30 secondes)
-let remainingTime = 30;
+// Durée initiale en secondes (15 secondes)
+let remainingTime = 15;
 
 // Fonction pour générer un code aléatoire à 6 chiffres
 function generate_new_code() {
@@ -34,8 +34,8 @@ function start_timer() {
       // 1. On génère un nouveau code
       generate_new_code();
       
-      // 2. On remet le chronomètre à 30 secondes pour recommencer un cycle
-      remainingTime = 30; 
+      // 2. On remet le chronomètre à 15 secondes pour recommencer un cycle
+      remainingTime = 15; 
     } else {
       // Sinon on décrémente le temps
       remainingTime--;
@@ -43,32 +43,8 @@ function start_timer() {
   }, 1000); // Toutes les 1 seconde
 }
 
-// Fonction pour copier le code
-function copy_code() {
-  const codeElement = document.getElementById("code");
-  const codeWithoutSpaces = codeElement.textContent.replace(/\s/g, "");
-
-  navigator.clipboard.writeText(codeWithoutSpaces)
-    .then(() => {
-      const button = document.getElementById("copyButton");
-      button.textContent = "Code copié !";
-
-      setTimeout(() => {
-        button.textContent = "Copier le code";
-      }, 2000);
-    })
-    .catch(() => {
-      alert("Impossible de copier le code. Recopiez-le manuellement.");
-    });
-}
-
 // Lancer le timer dès le chargement de la page et lier le bouton copier
 window.onload = function() {
+  generate_new_code()
   start_timer();
-  
-  // Ajoute l'écouteur de clic sur le bouton copier
-  const button = document.getElementById("copyButton");
-  if (button) {
-    button.addEventListener("click", copy_code);
-  }
 };

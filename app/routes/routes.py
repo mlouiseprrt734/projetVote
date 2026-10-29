@@ -10,3 +10,5 @@ bp.add_url_rule("/ballotpage", "ballotpage", main_controller.ballotpage)
 bp.add_url_rule("/resultspage", "resultspage", main_controller.resultspage)
 bp.add_url_rule("/organisationpage", "organisationpage", main_controller.organisationpage)
 
+#route séparée pour l'affichage du code TOTP
+bp.add_url_rule("/displayTOTP", "displayTOTP", main_controller.displayTOTP)
