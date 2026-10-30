@@ -20,6 +20,3 @@ def organisationpage():
 
 def presence_control():
     return render_template("pages/presence_control.html")
-
-def network_access_control():
-    return render_template("pages/network_access_control.html")

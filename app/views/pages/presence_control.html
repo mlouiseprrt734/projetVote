@@ -3,19 +3,42 @@
     <head>
         <meta charset="utf-8">
         <title>Page de contrôle de présence</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
     </head>
     <body>
-    <h1>HTML Geolocation</h1>
-    <p>Click the button to get your coordinates.</p>
 
-    <button onclick="getLocation()">Try It</button>
+        <div class="containerlogin">
+            <div class="topbar">
+                <a class="backbtn" href="{{ url_for('main.homepage') }}">Déconnexion</a>
+                <img class="logovoteapp" src="../static/media/logovote.jpg" alt="image d'une main plaçant un vote dans une urne">
+            </div>
 
-    <p id="user-location"></p>
-    <script src="/static/location_access.js"></script>
+            <h1 class="logintitle1">Preuve de présence</h1>
+            <p class="logintxt1"><strong>Etape 1 :</strong> Activez votre localisation.</p>
+            <p class="logintxt1"><strong>Etape 2 :</strong> Connectez-vous au réseau Wifi de votre lieu de vote.</p>
+            <p class="logintxt1"><strong>Etape 3 :</strong> Saisissez le code affiché sur le lieu de vote pour accéder au scrutin.</p>
 
-    <button onclick="checkNetwork()">Check Network Connection</button>
-    <p id="network-status"></p>
-    <script src="/static/network_access.js"></script>
+            <div class="presence-number-container">
+                <div class="presence-number-circle">1234</div>
+            </div>
 
+            <form id="presence-control-form">
+                <div class="form-group">
+                    <label for="code">Code de présence <span>*</span></label>
+                    <input type="text" id="code" name="code" placeholder="Ex. 7K3M9">
+                </div>
+
+                <button type="submit" class="buttonpasskey">Vérifier la présence</button>
+            </form>
+
+            <div id="error-message" style="color: red; margin-top: 15px; font-size: 14px; font-weight: 500;"></div>
+
+            <div class="infobulle">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230b214d'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z'/></svg>" alt="Info">
+                <p>Le code est affiché dans la salle de vote et est valable pendant 15 secondes.</p>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='presence_control.js') }}"></script>
     </body>
 </html>
