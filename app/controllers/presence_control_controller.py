@@ -18,7 +18,6 @@ def verify_presence():
             "error": "Votre localisation ne correspond pas à celle de votre lieu de vote."
         }), 400
 
-    # 3. Vérification du réseau
     if not is_connected_to_site_network():
         return jsonify({
             "success": False, 
