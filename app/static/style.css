@@ -182,7 +182,7 @@ body > .containerlogin {
 body > .containernav{
     max-width: 400px;
     margin: 0 auto;
-    padding: 50px 40px;
+    padding: 0;
     text-align: center;
 }
 .headernav{
@@ -191,6 +191,7 @@ body > .containernav{
     justify-content: space-between;
     align-items: center;
     background-color: #ff8000;
+    padding: 0 10px;
 }
 .headernav>p{
     color:#ffffff;
@@ -209,7 +210,6 @@ body > .containernav{
     width: 30px;
 }
 .returnnav{
-    margin-left: 30%;
     background: none;
     border: none;
     padding: 0;
