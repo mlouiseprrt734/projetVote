@@ -18,5 +18,8 @@ def resultspage():
 def organisationpage():
     return render_template("pages/organisationpage.html")
 
+def RGPDpage():
+    return render_template("pages/RGPDpage.html")
+
 def displayTOTP():
     return render_template("pages/displayTOTP.html")
