@@ -20,3 +20,5 @@ def organisationpage():
 
 def presence_control():
     return render_template("pages/presence_control.html")
+def displayTOTP():
+    return render_template("pages/displayTOTP.html")
