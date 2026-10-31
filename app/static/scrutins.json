@@ -1,0 +1,17 @@
+{
+  "conseil": [
+    { "nom": "Liste A", "description": "Étudiantes et étudiants d'abord" },
+    { "nom": "Liste B", "description": "Agir ensemble" },
+    { "nom": "Liste C", "description": "Campus durable" }
+  ],
+  "budget": [
+    { "nom": "Projet A", "description": "Plus d'espaces de travail" },
+    { "nom": "Projet B", "description": "Aménagement du campus" },
+    { "nom": "Projet C", "description": "Mobilité durable" }
+  ],
+  "formation": [
+    { "nom": "Liste A", "description": "Améliorer les formations" },
+    { "nom": "Liste B", "description": "Accompagner les étudiants" },
+    { "nom": "Liste C", "description": "Innover ensemble" }
+  ]
+}
