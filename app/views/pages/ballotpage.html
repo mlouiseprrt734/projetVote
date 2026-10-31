@@ -1,14 +1,187 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>Page des scrutins</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <div class="ballotcontainer">
+<head>
+    <meta charset="utf-8">
+    <title>Mes scrutins - Vote U</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ballotpage.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="{{ url_for('static', filename='ballotpage.js') }}" defer></script>
+</head>
+
+<body>
+    <div class="containerlogin">
+
+        <div class="topbar">
+            <a class="backbtn" href="{{ url_for('main.navigation') }}">← Retour</a>
+            <img class="logovoteapp" src="{{ url_for('static', filename='media/logovote.jpg') }}" alt="Logo Vote U">
         </div>
-    </body>
+
+        <main class="ballot-main">
+
+            <div class="ballot-heading">
+                <h1 class="logintitle1">Mes scrutins</h1>
+                <p class="logintxt1">Sélectionnez le scrutin auquel vous souhaitez participer.</p>
+            </div>
+
+            <!-- liste des scrutins -->
+            <section id="scrutin-selection" class="ballot-view">
+
+                <h2>Scrutins disponibles</h2>
+                <p>Choisissez un scrutin pour accéder au vote.</p>
+
+                <div class="scrutin-list">
+
+                    <button class="scrutin-card" data-scrutin="conseil"
+                        data-title="Conseil étudiant 2026"
+                        data-date="Du 1 au 5 décembre 2026"
+                        data-location="Campus Bastide">
+
+                        <span class="scrutin-name">Conseil étudiant 2026</span>
+                        <span class="scrutin-detail"><i class="bi bi-calendar3"></i> Du 1 au 5 décembre 2026</span>
+                        <span class="scrutin-detail"><i class="bi bi-geo-alt-fill"></i> Campus Bastide</span>
+                        <span class="scrutin-arrow">›</span>
+                    </button>
+
+                    <button class="scrutin-card" data-scrutin="budget"
+                        data-title="Budget participatif"
+                        data-date="Du 10 au 12 décembre 2026"
+                        data-location="Campus Talence">
+
+                        <span class="scrutin-name">Budget participatif</span>
+                        <span class="scrutin-detail"><i class="bi bi-calendar3"></i> Du 10 au 12 décembre 2026</span>
+                        <span class="scrutin-detail"><i class="bi bi-geo-alt-fill"></i> Campus Talence</span>
+                        <span class="scrutin-arrow">›</span>
+                    </button>
+
+                    <button class="scrutin-card" data-scrutin="formation"
+                        data-title="Commission formation"
+                        data-date="Du 15 au 18 janvier 2027"
+                        data-location="Campus Pessac">
+
+                        <span class="scrutin-name">Commission formation</span>
+                        <span class="scrutin-detail"><i class="bi bi-calendar3"></i> Du 15 au 18 janvier 2027</span>
+                        <span class="scrutin-detail"><i class="bi bi-geo-alt-fill"></i> Campus Pessac</span>
+                        <span class="scrutin-arrow">›</span>
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- main page de vote -->
+            <section id="vote-screen" class="ballot-view" hidden>
+
+                <button class="ballot-return" id="back-to-scrutins">← Tous les scrutins</button>
+
+                <div class="ballot-scrutin">
+                    <h2 id="ballot-scrutin-title"></h2>
+                    <p id="selected-scrutin-date"></p>
+                    <p id="selected-scrutin-location"></p>
+                </div>
+
+                <!-- barre de progression -->
+                <div class="ballot-stepper">
+                    <ol>
+                        <li data-progress-step="1">
+                            <span class="ballot-step-number">1</span>
+                            <span>Choix</span>
+                        </li>
+                        <li data-progress-step="2">
+                            <span class="ballot-step-number">2</span>
+                            <span>Confirmation</span>
+                        </li>
+                        <li data-progress-step="3">
+                            <span class="ballot-step-number">3</span>
+                            <span>Validation</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- étape 1 Choix de la liste -->
+                <section class="ballot-panel" data-vote-stage="1">
+
+                    <h2>Sélectionnez votre choix</h2>
+                    <p>Choisissez une liste parmi celles proposées.</p>
+
+                    <div class="ballot-choices">
+
+                        <label class="ballot-choice">
+                            <input type="radio" name="voteChoice">
+                            <span class="ballot-choice-body">
+                                <strong>Liste A</strong>
+                                <small>Étudiantes et étudiants d'abord</small>
+                            </span>
+                        </label>
+
+                        <label class="ballot-choice">
+                            <input type="radio" name="voteChoice">
+                            <span class="ballot-choice-body">
+                                <strong>Liste B</strong>
+                                <small>Agir ensemble</small>
+                            </span>
+                        </label>
+
+                        <label class="ballot-choice">
+                            <input type="radio" name="voteChoice">
+                            <span class="ballot-choice-body">
+                                <strong>Liste C</strong>
+                                <small>Campus durable</small>
+                            </span>
+                        </label>
+
+                    </div>
+
+                    <div class="ballot-actions">
+                        <button class="ballot-secondary" id="back-to-lists">Retour</button>
+                        <button class="ballot-primary" id="to-review" disabled>Continuer →</button>
+                    </div>
+                </section>
+
+                <!-- etape 2 : Confirmation -->
+                <section class="ballot-panel" data-vote-stage="2" hidden>
+
+                    <h2>Confirmez votre choix</h2>
+                    <p>Vérifiez votre sélection avant de confirmer.</p>
+
+                    <div class="ballot-summary">
+                        <strong id="ballot-review-name"></strong>
+                        <p id="ballot-review-description"></p>
+                    </div>
+
+                    <div class="ballot-actions">
+                        <button class="ballot-secondary" id="back-to-choice">Modifier</button>
+                        <button class="ballot-primary" id="confirm-choice">Confirmer →</button>
+                    </div>
+                </section>
+
+                <!-- etape 3 : Validation -->
+                <section class="ballot-panel ballot-final" data-vote-stage="3" hidden>
+
+                    <span class="ballot-final-symbol">✓</span>
+                    <h2>Simulation terminée</h2>
+                    <p>Aucun vote n'a été enregistré.</p>
+
+                    <div class="ballot-actions">
+                        <button class="ballot-primary" id="restart-vote">Retour aux scrutins</button>
+                    </div>
+                </section>
+
+            </section>
+
+            <!-- Informations RGPD... Link to be added !-->
+            <div class="ballot-footer">
+                <a href="#ballot-rgpd">Mentions RGPD et confidentialité</a>
+            </div>
+
+            <div id="ballot-rgpd" class="ballot-rgpd">
+                <h2>Informations sur les données personnelles</h2>
+                <p>Cette simulation n'enregistre aucun vote. Les mentions RGPD définitives seront ajoutées par l'équipe.</p>
+            </div>
+
+        </main>
+    </div>
+</body>
 </html>
