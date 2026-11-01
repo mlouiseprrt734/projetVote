@@ -1,4 +1,14 @@
-.env
+# Environnements virtuels
 venv/
+source/
+
+# Variables d'environnement et secrets
+.env
+
+# Fichiers Python temporaires
 __pycache__/
 *.pyc
+
+# Configuration des éditeurs
+.vscode/
+.idea/
