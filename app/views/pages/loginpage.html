@@ -19,12 +19,15 @@
 
             <img class="empreinte" src="../static/media/empreinte.png" alt="image empreinte digitale pour connexion">
 
-            <a href="{{ url_for('main.navigation') }}"><button class="buttonpasskey">Se connecter avec ma passkey</button></a>
+            <button type="button" class="buttonpasskey" onclick="loginWithPasskey()">Se connecter avec ma passkey</button>
+
+            <p id="error-message" style="color: red; margin-top: 10px;"></p>
 
             <div class="infobulle">
                 <img class="infoimg" src="../static/media/infobulle.png" alt="image infobulle">
                 <p class="txtinfo">Utilisez la même méthode d'authentification que celle de votre appareil (empreinte digitale, code ou clé de sécurité)</p>
             </div>
         </div>
+        <script src="{{ url_for('static', filename='auth_login.js') }}"></script>
     </body>
 </html>

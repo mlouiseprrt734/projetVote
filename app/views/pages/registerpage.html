@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Inscription - Passkey</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="containerlogin">
+            <div class="topbar">
+                <a class="backbtn" href="{{ url_for('main.homepage') }}">🠔 Retour</a>
+                <img class="logovoteapp" src="../static/media/logovote.jpg" alt="Logo vote">
+            </div>
+            
+            <h1 class="logintitle1">Inscription</h1>
+            <p class="logintxt1">Créez votre compte en enregistrant votre passkey</p>
+
+            <div style="margin-bottom: 15px; width: 100%; text-align: center;">
+                <input type="email" id="email" placeholder="Votre adresse email" style="padding: 10px; width: 80%; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+
+            <button type="button" class="buttonpasskey" onclick="registerWithPasskey()">S'enregistrer avec ma passkey</button>
+
+            <p id="error-message" style="color: red; margin-top: 10px;"></p>
+
+            <div class="infobulle">
+                <img class="infoimg" src="../static/media/infobulle.png" alt="Info">
+                <p class="txtinfo">Votre passkey restera sécurisée et liée à votre appareil.</p>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='auth_register.js') }}"></script>
+    </body>
+</html>
