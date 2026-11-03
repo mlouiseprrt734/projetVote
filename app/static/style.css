@@ -352,8 +352,58 @@ body > .organisationcontainer {
 }
 
 
-/** PARTIE DE PARAMETRE D'UN SCRUTIN **/
+/** PARTIE DE PARAMETRE ET DE CREATION D'UN SCRUTIN **/
 
+.formscrutin{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+}
+
+.formscrutin select, input, textarea{
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.formscrutin h4{
+    margin-bottom: -0.1px;
+}
+
+.dates{
+    display: flex;
+    gap: 10px;
+}
+
+.dates input{
+    width: 140px;
+    font-size: 12px;
+    padding: 4px;
+}
+
+.obligatoire{
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.btnsave{
+    background-color: #ff8000;
+    color: #ffffff;
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+}
+
+.formtxt{
+    display: block;
+    color: #a7a7a7;
+    font-size: 11px;
+    text-align: left;
+}
 
 /** PARTIE TEST POUR SIDENAV **/
 /** PARTIE CSS POUR LE MENU DE NAVIGATION **/
