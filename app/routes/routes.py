@@ -18,4 +18,4 @@ bp.add_url_rule("/verify-presence", "verify_presence", presence_control_controll
 bp.add_url_rule("/displayTOTP", "displayTOTP", main_controller.displayTOTP)
 
 #route pour le TOTP
-bp.add_url_rule("/api/totp", "api_totp", totp_controller.get_totp)
+bp.add_url_rule("/totp", "totp", totp_controller.get_totp)

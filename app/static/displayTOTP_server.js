@@ -1,7 +1,7 @@
 // Récupère le code TOTP calculé par le serveur
 async function update_code() {
     try {
-        const response = await fetch("/api/totp", {cache: "no-store"});
+        const response = await fetch("/totp", {cache: "no-store"});
         if (!response.ok) throw new Error("Code indisponible");
 
         const data = await response.json();
