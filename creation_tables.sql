@@ -1,73 +1,70 @@
-CREATE TABLE Vote.Electeur (
-    idElecteur VARCHAR(50) PRIMARY KEY,
+CREATE SCHEMA IF NOT EXISTS "Vote";
+SET search_path TO "Vote";
+
+CREATE TABLE Electeur (
+    idElecteur INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     nom VARCHAR(50),
     prenom VARCHAR(50)
 );
 
-CREATE TABLE Vote.Scrutin (
-    idScrutin VARCHAR(50) PRIMARY KEY,
+CREATE TABLE Scrutin (
+    idScrutin INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     type VARCHAR(50),
     dateOuverture DATE,
     dateCloture DATE,
     statut VARCHAR(50)
 );
 
-CREATE TABLE Vote.Choix (
-    idChoix VARCHAR(50) PRIMARY KEY,
+CREATE TABLE Choix (
+    idChoix INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     libelle VARCHAR(50),
-    idScrutin VARCHAR(50) NOT NULL,
-    FOREIGN KEY (idScrutin)
-        REFERENCES Vote.Scrutin(idScrutin),
-    UNIQUE (idChoix, idScrutin)
+    idScrutin INTEGER NOT NULL,
+    CONSTRAINT fk_choix_scrutin
+        FOREIGN KEY (idScrutin) REFERENCES Scrutin(idScrutin),
+    -- Permet à Bulletin de vérifier que le choix appartient au scrutin indiqué.
+    CONSTRAINT uq_choix_id_scrutin UNIQUE (idChoix, idScrutin)
 );
 
-CREATE TABLE Vote.Bulletin (
-    idBulletin VARCHAR(50) PRIMARY KEY,
-    vote VARCHAR(50) NOT NULL,
-    idChoix VARCHAR(50) NOT NULL,
-    idScrutin VARCHAR(50) NOT NULL,
-
-    FOREIGN KEY (idChoix, idScrutin)
-        REFERENCES Vote.Choix(idChoix, idScrutin)
+CREATE TABLE Bulletin (
+    idBulletin INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    vote VARCHAR(50),
+    idChoix INTEGER NOT NULL,
+    idScrutin INTEGER NOT NULL,
+    CONSTRAINT fk_bulletin_choix_scrutin
+        FOREIGN KEY (idChoix, idScrutin)
+        REFERENCES Choix(idChoix, idScrutin)
 );
 
-CREATE TABLE Vote.Ville (
+CREATE TABLE Ville (
     codePostal VARCHAR(50) PRIMARY KEY,
     nomVille VARCHAR(50)
 );
 
-CREATE TABLE Vote.Participation (
-    idElecteur VARCHAR(50),
-    idScrutin VARCHAR(50),
-    aVote BOOLEAN NOT NULL DEFAULT FALSE,
-
+CREATE TABLE Participation (
+    idElecteur INTEGER NOT NULL,
+    idScrutin INTEGER NOT NULL,
+    aVote BOOLEAN,
     PRIMARY KEY (idElecteur, idScrutin),
-
-    FOREIGN KEY (idElecteur)
-        REFERENCES Vote.Electeur(idElecteur),
-
-    FOREIGN KEY (idScrutin)
-        REFERENCES Vote.Scrutin(idScrutin)
+    CONSTRAINT fk_participation_electeur
+        FOREIGN KEY (idElecteur) REFERENCES Electeur(idElecteur),
+    CONSTRAINT fk_participation_scrutin
+        FOREIGN KEY (idScrutin) REFERENCES Scrutin(idScrutin)
 );
 
-CREATE TABLE Vote.Lieu (
-    idLieu VARCHAR(50) PRIMARY KEY,
+CREATE TABLE Lieu (
+    idLieu INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     nom VARCHAR(50),
     codePostal VARCHAR(50) NOT NULL,
-
-    FOREIGN KEY (codePostal)
-        REFERENCES Vote.Ville(codePostal)
+    CONSTRAINT fk_lieu_ville
+        FOREIGN KEY (codePostal) REFERENCES Ville(codePostal)
 );
 
-CREATE TABLE Vote.autorise (
-    idScrutin VARCHAR(50),
-    idLieu VARCHAR(50),
-
+CREATE TABLE Autorise (
+    idScrutin INTEGER NOT NULL,
+    idLieu INTEGER NOT NULL,
     PRIMARY KEY (idScrutin, idLieu),
-
-    FOREIGN KEY (idScrutin)
-        REFERENCES Vote.Scrutin(idScrutin),
-
-    FOREIGN KEY (idLieu)
-        REFERENCES Vote.Lieu(idLieu)
+    CONSTRAINT fk_autorise_scrutin
+        FOREIGN KEY (idScrutin) REFERENCES Scrutin(idScrutin),
+    CONSTRAINT fk_autorise_lieu
+        FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
 );
