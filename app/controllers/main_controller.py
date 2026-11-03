@@ -18,6 +18,15 @@ def resultspage():
 def organisationpage():
     return render_template("pages/organisationpage.html")
 
+def creationscrutin():
+    return render_template("pages/creationscrutin.html")
+
+def detailscrutin():
+    return render_template("pages/detailscrutin.html")
+
+def parametrescrutin():
+    return render_template("pages/parametrescrutin.html")
+
 def RGPDpage():
     return render_template("pages/RGPDpage.html")
 

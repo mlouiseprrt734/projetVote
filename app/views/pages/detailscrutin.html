@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Page d'organisation du scrutin</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="organisationcontainer">
+            <div class="topbar">
+                <a class="backbtn" href="{{ url_for('main.organisationpage') }}">← Retour</a>
+                <img class="logovoteapp" src="../static/media/logovote.jpg" alt="image d'une main plaçant un vote dans une urne">
+            </div>
+            <h1 class="logintitle1">Nom scrutin</h1>
+            <a class="scrutins">
+                <p class="date-scrutin">Date</p>
+                <p class="date-scrutin">Lieu</p>
+                <p class="date-scrutin">Listes</p>
+                <p class="date-scrutin">Nb electeurs</p>
+            </a>
+            <div class="btn-scrutin">
+                <a>Gérer les listes</a>
+                <hr>
+                <a>Gérer les électeurs</a>
+                <hr>
+                <a>Voir les résultats en temps réel</a>
+                <hr>
+                <a href="{{ url_for('main.parametrescrutin') }}">Modifier les paramètres</a>
+            </div>
+        </div>
+    </body>
+</html>
