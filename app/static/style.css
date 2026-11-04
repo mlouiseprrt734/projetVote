@@ -313,7 +313,7 @@ body > .organisationcontainer {
   padding: 16px;
   border-radius: 12px;
   background: #ffffff;
-  border-width: 2px;
+  border-width: 1.5px;
   border-style: solid;
   border-color: #cccccc;
   text-decoration: none;
@@ -326,23 +326,62 @@ body > .organisationcontainer {
 .inscrits-scrutin  { font-size: 0.85rem; color: #888; }
 
 /** PARTIE DE DETAIL D'UN SCRUTIN **/
+
+.detailscrutins {
+  display: block;
+  padding: 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #cccccc;
+  text-decoration: none;
+  text-align: left;
+  color: inherit;
+}
+.detailscrutins>p{
+    display:flex;
+    align-items: center;
+}
+.detailscrutins>p>img{
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
 .btn-scrutin{
     display: flex;
     flex-direction: column;
     margin-top: 5%;
     border-radius: 12px;
-    border-width: 2px;
+    border-width: 1.5px;
     border-style: solid;
     border-color: #cccccc;
+    align-self: flex-start;
 }
 .btn-scrutin > a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
     padding: 14px 16px;
     text-align: center;
     text-decoration: none;
     color: inherit;
+    font-size: 14px;
+    font-weight: 600;
 }
 .btn-scrutin>a:hover{
     background: #f5f5f5;
+}
+.btn-scrutin>a>img{
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    border-radius: 50%;
+    padding: 2px;
 }
 .btn-scrutin>hr{
     width: 90%;
@@ -350,7 +389,6 @@ body > .organisationcontainer {
     border: none;
     border-top: 1px solid #cccccc;
 }
-
 
 /** PARTIE DE PARAMETRE ET DE CREATION D'UN SCRUTIN **/
 
@@ -392,10 +430,14 @@ body > .organisationcontainer {
 .btnsave{
     background-color: #ff8000;
     color: #ffffff;
+    font-weight: 600;
     width: 40%;
     height: 30px;
     border: none;
     border-radius: 10px;
+}
+.btnsave:hover{
+    transform: scale(1.05);
 }
 
 .formtxt{

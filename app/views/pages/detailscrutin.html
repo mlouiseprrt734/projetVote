@@ -13,20 +13,20 @@
                 <img class="logovoteapp" src="../static/media/logovote.jpg" alt="image d'une main plaçant un vote dans une urne">
             </div>
             <h1 class="logintitle1">Nom scrutin</h1>
-            <a class="scrutins">
-                <p class="date-scrutin">Date</p>
-                <p class="date-scrutin">Lieu</p>
-                <p class="date-scrutin">Listes</p>
-                <p class="date-scrutin">Nb electeurs</p>
+            <a class="detailscrutins">
+                <p class="date-scrutin"><img src="../../static/media/calendrier.png">Date</p>
+                <p class="date-scrutin"><img src="../../static/media/gps.png">Lieu</p>
+                <p class="date-scrutin"><img src="../../static/media/document.png">Listes</p>
+                <p class="date-scrutin"><img src="../../static/media/silhouette.png">Nb electeurs</p>
             </a>
             <div class="btn-scrutin">
-                <a>Gérer les listes</a>
+                <a><img src="../../static/media/silhouette.png" style="background-color: #72def7;">Gérer les listes</a>
                 <hr>
-                <a>Gérer les électeurs</a>
+                <a><img src="../../static/media/silhouette.png" style="background-color: #72f78b;">Gérer les électeurs</a>
                 <hr>
-                <a>Voir les résultats en temps réel</a>
+                <a><img src="../../static/media/results.png" style="background-color: #fc931c;">Voir les résultats en temps réel</a>
                 <hr>
-                <a href="{{ url_for('main.parametrescrutin') }}">Modifier les paramètres</a>
+                <a href="{{ url_for('main.parametrescrutin') }}"><img src="../../static/media/rouedentee.png" style="background-color: #72f78b;">Modifier les paramètres</a>
             </div>
         </div>
     </body>
