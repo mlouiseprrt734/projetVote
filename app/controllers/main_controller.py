@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import jsonify, render_template
 
 def loginpage():
     return render_template("pages/loginpage.html")

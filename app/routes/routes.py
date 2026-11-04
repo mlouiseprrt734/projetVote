@@ -1,5 +1,5 @@
 from flask import Blueprint
-from ..controllers import main_controller, presence_control_controller, totp_controller
+from ..controllers import main_controller, presence_control_controller, totp_controller, electeurs_controller
 
 bp = Blueprint("main",__name__)
 
@@ -19,3 +19,6 @@ bp.add_url_rule("/displayTOTP", "displayTOTP", main_controller.displayTOTP)
 
 #route pour le TOTP
 bp.add_url_rule("/totp", "totp", totp_controller.get_totp)
+
+#route pour récupérer les électeurs
+bp.add_url_rule('/electeurs', "electeurs", electeurs_controller.get_electeurs, methods=["GET"])
