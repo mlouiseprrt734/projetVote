@@ -8,7 +8,14 @@ from psycopg.rows import dict_row
 # Charge le .env
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), ".env"))
 
-# Fonction connexion basique à la base de données PostgreSQL
+# Exemple de .env
+#DB_HOST=localhost
+#DB_PORT=5432
+#DB_NAME=nombdd
+#DB_USER=nomuser
+#DB_PASSWORD=mdpuser
+
+# Fonction connexion basique a la base de données Postgre
 def get_connection():
     
     return psycopg.connect(
@@ -22,22 +29,26 @@ def get_connection():
         row_factory=dict_row,
     )
 
-# Test de la connexion à la base de données
-# python -m app.models.db 
+# test de la connexion à la base de donnees
+# commande pour tester connexion, à la racine du projet: python -m app.models.db 
 if __name__ == "__main__":
     try:
         with get_connection() as conn:
             info = conn.execute(
                 "SELECT version() AS version, current_database() AS db, current_user AS usr"
             ).fetchone()
+
             tables = [r["table_name"] for r in conn.execute(
                 "SELECT table_name FROM information_schema.tables "
-                "WHERE table_schema = 'public' ORDER BY table_name"
+                "WHERE table_schema = 'Vote' ORDER BY table_name"
             ).fetchall()]
+
         print("Connexion OK")
         print("  Serveur     :", info["version"])
         print("  Base        :", info["db"])
         print("  Utilisateur :", info["usr"])
+        print("  Schéma      : Vote")
         print("  Tables      :", ", ".join(tables) or "aucune")
+
     except Exception as e:
         print("Échec de la connexion :", e)
