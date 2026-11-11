@@ -3,6 +3,9 @@ from flask import jsonify, render_template
 def loginpage():
     return render_template("pages/loginpage.html")
 
+def registerpage():
+    return render_template("pages/registerpage.html")
+
 def homepage():
     return render_template("pages/homepage.html")
 
