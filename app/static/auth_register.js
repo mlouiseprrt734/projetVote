@@ -33,7 +33,12 @@ async function registerWithPasskey() {
             body: JSON.stringify({ email })
         });
         
-        if (!res.ok) throw new Error("Erreur lors de votre enregistrement");
+        if (!res.ok) {
+            const errorData = await res.json().catch(() => ({}));
+            errorElement.innerText = errorData.error || "Erreur lors de votre enregistrement";
+            return;
+        }
+
         let options = await res.json();
 
         // Adaptation des types pour l'API du navigateur

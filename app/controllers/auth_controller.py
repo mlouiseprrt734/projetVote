@@ -17,8 +17,6 @@ from app import db
 RP_ID = "localhost"
 RP_NAME = "Application de vote"
 ORIGIN = "http://localhost:5000"
-users = {} # à remplacer par le modèle de bdd
-
 
 def register_begin():
     data = request.get_json()
