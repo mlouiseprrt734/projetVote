@@ -6,6 +6,7 @@ class Electeur(db.Model):
     idelecteur = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(50), nullable=False)
     prenom = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=True)
 
     def __repr__(self):
         return f"<Electeur {self.nom} {self.prenom}>"
