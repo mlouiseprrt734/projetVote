@@ -1,0 +1,376 @@
+/* Style de la page Mes scrutins */
+.ballot-main {
+    text-align: left;
+    color: #0b214d;
+}
+
+.ballot-heading {
+    margin-top: 20px;
+}
+
+.ballot-heading p, .ballot-scrutin p, .ballot-panel > p {
+    color: #6e7388eb;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Informations du scrutin */
+.ballot-scrutin {
+    background-color: #7c97ce43;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.ballot-scrutin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.ballot-demo-tag {
+    background-color: #dce2c8;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.ballot-scrutin h2 {
+    font-size: 18px;
+    margin: 15px 0 8px;
+}
+
+.ballot-scrutin p {
+    margin: 0;
+}
+
+/* Etapes du vote */
+.ballot-stepper ol {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.ballot-stepper li {
+    flex: 1;
+    min-width: 0;
+    padding: 5px 0 10px;
+    border-bottom: 3px solid #ddd;
+    text-align: center;
+    font-size: 11px;
+    color: #6e7388;
+}
+
+.ballot-step-number {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 8px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.ballot-stepper .is-current {
+    border-color: #ff8000;
+    font-weight: bold;
+    color: #0b214d;
+}
+
+.is-current .ballot-step-number {
+    background-color: #ff8000;
+    color: white;
+}
+
+.ballot-stepper .is-complete {
+    border-color: #65def1;
+}
+
+.is-complete .ballot-step-number {
+    background-color: #65def1;
+    color: #0b214d;
+}
+
+/* Contenu du vote */
+.ballot-panel[hidden] {
+    display: none;
+}
+
+.ballot-panel h2 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.ballot-step-kicker {
+    color: #ff8000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.ballot-list-preview {
+    padding: 0;
+    list-style: none;
+}
+
+.ballot-list-preview li, .ballot-choice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.ballot-list-icon {
+    background-color: #65def1;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.ballot-list-preview strong, .ballot-choice strong,
+.ballot-list-preview small, .ballot-choice small {
+    display: block;
+}
+
+.ballot-list-preview small, .ballot-choice small {
+    color: #6e7388;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Selection d'une liste */
+.ballot-choices {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.ballot-choice {
+    cursor: pointer;
+}
+
+.ballot-choice input {
+    accent-color: #ff8000;
+}
+
+.ballot-choice:hover {
+    background-color: #eaf8fb;
+}
+
+/* Boutons comme sur les autres pages */
+.ballot-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.ballot-actions button {
+    width: 100%;
+    min-height: 45px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ballot-primary {
+    background-color: #ff8000;
+    color: white;
+    border: none;
+}
+
+.ballot-secondary {
+    background-color: white;
+    color: #0b214d;
+    border: 1px solid #0b214d;
+}
+
+.ballot-actions button:hover:not(:disabled) {
+    transform: scale(1.02);
+}
+
+.ballot-primary:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Confirmation et validation */
+.ballot-summary, .ballot-info {
+    background-color: #7c97ce43;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.ballot-summary-caption {
+    font-size: 13px;
+    margin-top: 0;
+}
+
+.ballot-info, .ballot-warning {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.ballot-final {
+    text-align: center;
+}
+
+.ballot-final-symbol {
+    display: block;
+    font-size: 40px;
+    color: #0b214d;
+}
+
+.ballot-warning {
+    background-color: #fff3cd;
+    border-left: 4px solid #ff8000;
+    padding: 12px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Mentions RGPD */
+.ballot-footer {
+    margin: 30px 0 15px;
+    text-align: center;
+}
+
+.ballot-footer a {
+    color: #0c4fd4;
+    font-size: 14px;
+}
+
+.ballot-rgpd {
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.ballot-rgpd h2 {
+    font-size: 16px;
+}
+
+.ballot-rgpd p {
+    font-size: 12px;
+    color: #6e7388;
+    line-height: 1.5;
+}
+
+.ballot-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+/* Adaptation aux petits écrans */
+@media (max-width: 400px) {
+    .ballot-stepper li {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .ballot-step-number {
+        width: 27px;
+        height: 27px;
+        line-height: 27px;
+    }
+}
+
+/* Choix du scrutin */
+.ballot-view[hidden] {
+    display: none;
+}
+
+#scrutins-title {
+    font-size: 21px;
+    margin: 25px 0 8px;
+}
+
+.ballot-intro, .ballot-demo-note {
+    color: #6e7388;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.scrutin-list {
+    margin-top: 20px;
+}
+
+.scrutin-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 16px 45px 16px 14px;
+    margin-bottom: 12px;
+    border: 1px solid #e3e7ee;
+    border-radius: 10px;
+    background-color: white;
+    color: #0b214d;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+.scrutin-card:hover, .scrutin-card:focus-visible {
+    border-color: #ff8000;
+    background-color: #fff4e9;
+}
+
+.scrutin-name {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* Masquer les écrans non affichés */
+.ballot-view[hidden],
+.ballot-panel[hidden] {
+    display: none;
+}
+
+.scrutin-detail {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #0b214d;
+}
+
+.scrutin-detail i {
+    color: #0b214d;
+    margin-right: 5px;
+}
+
+.scrutin-arrow {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    line-height: 25px;
+    text-align: center;
+    color: #0c4fd4;
+    font-size: 25px;
+}
+
+.ballot-return {
+    margin-top: 18px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #0c4fd4;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
