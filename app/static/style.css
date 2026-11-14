@@ -320,6 +320,7 @@ body > .organisationcontainer {
   color: inherit;
   transition: transform 0.1s;
 }
+.scrutins:hover { transform: scale(1.02); }
 .scrutins:active { transform: scale(0.98); }
 .titre-scrutin { margin: 0 0 6px; font-size: 1.1rem; }
 .date-scrutin  { margin: 0 0 8px; color: #555; }
