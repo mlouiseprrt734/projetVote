@@ -14,10 +14,13 @@
             </div>
             <h1 class="logintitle1">Nom scrutin</h1>
             <a class="detailscrutins">
-                <p class="date-scrutin"><img src="../../static/media/calendrier.png">Date</p>
-                <p class="date-scrutin"><img src="../../static/media/gps.png">Lieu</p>
-                <p class="date-scrutin"><img src="../../static/media/document.png">Listes</p>
-                <p class="date-scrutin"><img src="../../static/media/silhouette.png">Nb electeurs</p>
+                <p class="date-scrutin"><img src="../../static/media/document.png">{{ scrutin.type }}</p>
+                <p class="date-scrutin"><img src="../../static/media/calendrier.png">Du {{ scrutin.dateouverture.strftime('%d/%m/%Y') }} au {{ scrutin.datecloture.strftime('%d/%m/%Y') }}</p>
+                {% if scrutin.statut == 'En cours' %}
+                    <span class="inscrits-scrutin" style="background-color: green; border-radius: 5px; padding: 5px; color: white;">{{ scrutin.statut }}</span>
+                {% elif scrutin.statut =='Terminé' %}
+                    <span class="inscrits-scrutin" style="background-color: red; border-radius: 5px; padding: 5px; color: white;">{{ scrutin.statut }}</span>
+                {% endif %}
             </a>
             <div class="btn-scrutin">
                 <a><img src="../../static/media/silhouette.png" style="background-color: #72def7;">Gérer les listes</a>
