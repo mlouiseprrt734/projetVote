@@ -1,5 +1,5 @@
 from flask import Blueprint
-from ..controllers import main_controller, presence_control_controller, totp_controller, electeurs_controller, auth_controller
+from ..controllers import main_controller, presence_control_controller, totp_controller, electeurs_controller, auth_controller, organisation_controller
 
 bp = Blueprint("main",__name__)
 
@@ -9,8 +9,8 @@ bp.add_url_rule("/registerpage", "registerpage", main_controller.registerpage)
 bp.add_url_rule("/navigation", "navigation", main_controller.navigation)
 bp.add_url_rule("/ballotpage", "ballotpage", main_controller.ballotpage)
 bp.add_url_rule("/resultspage", "resultspage", main_controller.resultspage)
-bp.add_url_rule("/organisationpage", "organisationpage", main_controller.organisationpage)
-bp.add_url_rule("/detailscrutin", "detailscrutin", main_controller.detailscrutin)
+bp.add_url_rule("/organisationpage", "organisationpage", organisation_controller.organisationpage)
+bp.add_url_rule("/detailscrutin/<int:idscrutin>", "detailscrutin", organisation_controller.detailscrutin)
 bp.add_url_rule("/creationscrutin", "creationscrutin", main_controller.creationscrutin)
 bp.add_url_rule("/RGPDpage", "RGPDpage", main_controller.RGPDpage)
 bp.add_url_rule("/parametrescrutin", "parametrescrutin", main_controller.parametrescrutin)

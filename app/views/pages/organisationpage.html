@@ -17,14 +17,20 @@
             <a href="{{ url_for('main.creationscrutin') }}"><button class="buttonpasskey">➕ Créer un nouveau scrutin</button></a>
 
             <div class="listescrutins">
-                {% for i in scrutins %}
-                    <a class="scrutins" href="{{ url_for('main.detailscrutin')}}"></a>
-                {% else %}
-                    <a class="scrutins" href="{{ url_for('main.detailscrutin')}}">
-                        <h3 class="titre-scrutin">Test</h3>
-                        <p class="date-scrutin">Test</p>
-                        <span class="inscrits-scrutin">Test</span>
+                {% for scrutin in scrutins %}
+                    <a class="scrutins" href="{{ url_for('main.detailscrutin', idscrutin=scrutin.idscrutin) }}">
+                        <h3 class="titre-scrutin">{{ scrutin.type }}</h3>
+                        <p class="date-scrutin">
+                            Du {{ scrutin.dateouverture.strftime('%d/%m/%Y') }}
+                            au {{ scrutin.datecloture.strftime('%d/%m/%Y') }}
+                        </p>
+                        {% if scrutin.statut == 'En cours' %}
+                            <span class="inscrits-scrutin" style="background-color: green; border-radius: 5px; padding: 5px; color: white;">{{ scrutin.statut }}</span>
+                        {% elif scrutin.statut =='Terminé' %}
+                            <span class="inscrits-scrutin" style="background-color: red; border-radius: 5px; padding: 5px; color: white;">{{ scrutin.statut }}</span>
+                        {% endif %}
                     </a>
+                {% else %}
                     <p>Aucun scrutin pour le moment</p>
                 {% endfor %}
             </div>
