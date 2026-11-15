@@ -450,6 +450,12 @@ body > .organisationcontainer {
     text-align: left;
 }
 
+.select-statut.statut-encours { color: green; }
+.select-statut.statut-termine { color: red; }
+
+.select-statut option[value="En cours"] { color: green; }
+.select-statut option[value="Terminé"]  { color: red; }
+
 /** PARTIE TEST POUR SIDENAV **/
 /** PARTIE CSS POUR LE MENU DE NAVIGATION **/
 
