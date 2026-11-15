@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de scrutin - Paramètres</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Bouton Retour -->
+        <button type="button" class="back-btn" onclick="go_back()">← Retour</button>
+
+        <!-- En-tête avec titre et bouton enregistrer -->
+        <header class="header-section">
+            <h1>Paramètres</h1>
+            <button type="button" id="saveBtn" class="save-btn" onclick="handle_submit(event)">Enregistrer</button>
+        </header>
+
+        <!-- Message d'erreur global (en rouge) -->
+        <div id="errorBanner" class="error-banner hidden"></div>
+        <div id="successBanner" class="success-banner hidden">Scrutin validé avec succès !</div>
+
+        <!-- Formulaire de paramètres -->
+        <form id="scrutinForm" novalidate>
+            
+            <section class="form-section">
+                <h2>Informations générales</h2>
+
+                <!-- Titre du scrutin -->
+                <div class="form-group" id="groupTitle">
+                    <label for="ballotTitle">Titre du scrutin <span class="required">*</span></label>
+                    <input type="text" id="ballotTitle" placeholder="Ex: Conseil étudiant 2025">
+                </div>
+
+                <!-- Description -->
+                <div class="form-group" id="groupDescription">
+                    <label for="ballotDescription">Description <span class="required">*</span></label>
+                    <textarea id="ballotDescription" rows="3" placeholder="Élection des représentants étudiants..."></textarea>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Dates</h2>
+                <div class="dates-container">
+                    <!-- Date de début -->
+                    <div class="form-group" id="groupStartDate">
+                        <label for="startDate">Date de début <span class="required">*</span></label>
+                        <input type="date" id="startDate">
+                    </div>
+
+                    <!-- Date de fin -->
+                    <div class="form-group" id="groupEndDate">
+                        <label for="endDate">Date de fin <span class="required">*</span></label>
+                        <input type="date" id="endDate">
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Lieu de vote</h2>
+                <!-- Lieu (Select lié au MCD / Lieu de vote) -->
+                <div class="form-group" id="groupLocation">
+                    <label for="locationSelect">Lieu de vote <span class="required">*</span></label>
+                    <select id="locationSelect">
+                        <option value="">-- Sélectionner un lieu --</option>
+                        <option value="campus_bastide">Campus Bastide</option>
+                        <option value="campus_victoire">Campus Victoire</option>
+                        <option value="campus_carre_sylvia">Campus Carré Sylvia</option>
+                    </select>
+                </div>
+            </section>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
