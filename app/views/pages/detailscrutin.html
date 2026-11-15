@@ -29,7 +29,7 @@
                 <hr>
                 <a><img src="../../static/media/results.png" style="background-color: #fc931c;">Voir les résultats en temps réel</a>
                 <hr>
-                <a href="{{ url_for('main.parametrescrutin') }}"><img src="../../static/media/rouedentee.png" style="background-color: #72f78b;">Modifier les paramètres</a>
+                <a href="{{ url_for('main.parametrescrutin', idscrutin=scrutin.idscrutin) }}"><img src="../../static/media/rouedentee.png" style="background-color: #72f78b;">Modifier les paramètres</a>
             </div>
         </div>
     </body>

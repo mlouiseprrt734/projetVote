@@ -13,7 +13,7 @@ bp.add_url_rule("/organisationpage", "organisationpage", organisation_controller
 bp.add_url_rule("/detailscrutin/<int:idscrutin>", "detailscrutin", organisation_controller.detailscrutin)
 bp.add_url_rule("/creationscrutin", "creationscrutin", main_controller.creationscrutin)
 bp.add_url_rule("/RGPDpage", "RGPDpage", main_controller.RGPDpage)
-bp.add_url_rule("/parametrescrutin", "parametrescrutin", main_controller.parametrescrutin)
+bp.add_url_rule("/parametrescrutin/<int:idscrutin>", "parametrescrutin", organisation_controller.parametrescrutin, methods=["GET", "POST"])
 
 
 
