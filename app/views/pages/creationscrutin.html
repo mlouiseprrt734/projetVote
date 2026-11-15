@@ -43,11 +43,15 @@
 
                 <h4>Lieu de vote</h4>
                 <div>
-                    <select id="lieu" class="formtxt" name="lieu">
+                    <select id="lieu" class="formtxt" name="lieux">
                         <option value="">Choisir un lieu</option>
+                        {% for lieu in lieux %}
+                            <option value="{{ lieu.idlieu }}">{{ lieu.nom }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </form>
         </div>
+        <script src="/app/static/scrutin.js"></script>
     </body>
 </html>

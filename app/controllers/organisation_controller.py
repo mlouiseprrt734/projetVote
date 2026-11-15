@@ -22,6 +22,10 @@ def detailscrutin(idscrutin):
     )
     return render_template("pages/detailscrutin.html", scrutin=scrutin, lieux=lieux)
 
+def creationscrutin():
+    lieux = Lieu.query.all()
+    return render_template("pages/creationscrutin.html", lieux=lieux)
+
 def parametrescrutin(idscrutin):
     scrutin = db.session.get(Scrutin, idscrutin)
     if scrutin is None:

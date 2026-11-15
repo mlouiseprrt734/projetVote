@@ -9,15 +9,17 @@ bp.add_url_rule("/registerpage", "registerpage", main_controller.registerpage)
 bp.add_url_rule("/navigation", "navigation", main_controller.navigation)
 bp.add_url_rule("/ballotpage", "ballotpage", main_controller.ballotpage)
 bp.add_url_rule("/resultspage", "resultspage", main_controller.resultspage)
+
+#routes de gestion du scrutin
 bp.add_url_rule("/organisationpage", "organisationpage", organisation_controller.organisationpage)
 bp.add_url_rule("/detailscrutin/<int:idscrutin>", "detailscrutin", organisation_controller.detailscrutin)
-bp.add_url_rule("/creationscrutin", "creationscrutin", main_controller.creationscrutin)
+bp.add_url_rule("/creationscrutin", "creationscrutin", organisation_controller.creationscrutin)
+
 bp.add_url_rule("/RGPDpage", "RGPDpage", main_controller.RGPDpage)
 bp.add_url_rule("/parametrescrutin/<int:idscrutin>", "parametrescrutin", organisation_controller.parametrescrutin, methods=["GET", "POST"])
 
 
-
-#contrôle de présence
+#routes pour le contrôle de présence
 bp.add_url_rule("/presence-control", "presence_control", main_controller.presence_control)
 bp.add_url_rule("/verify-presence", "verify_presence", presence_control_controller.verify_presence, methods=["POST"])
 
