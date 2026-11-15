@@ -6,4 +6,4 @@ class Ville(db.Model):
     codepostal = db.Column(db.String(50), primary_key=True)
     nomville = db.Column(db.String(50))
     
-    lieux = db.relationship('Lieu', backref='ville_associee', lazy=True)
+    lieux = db.relationship("Lieu", back_populates="ville", lazy=True)

@@ -1,6 +1,8 @@
 from flask import render_template, request, redirect, url_for, abort
 from app import db
-from app.models.organisation_model import Scrutin
+from app.models.autorise import Autorise
+from app.models.lieu_model import Lieu
+from app.models.scrutin_model import Scrutin
 from datetime import date
 
 def organisationpage():
@@ -11,7 +13,14 @@ def detailscrutin(idscrutin):
     scrutin = db.session.get(Scrutin, idscrutin)
     if scrutin is None:
         abort(404)
-    return render_template("pages/detailscrutin.html", scrutin=scrutin)
+
+    lieux = (
+      db.session.query(Lieu)
+      .join(Autorise, Lieu.idlieu == Autorise.idlieu)
+      .filter(Autorise.idscrutin == idscrutin)
+      .all()
+    )
+    return render_template("pages/detailscrutin.html", scrutin=scrutin, lieux=lieux)
 
 def parametrescrutin(idscrutin):
     scrutin = db.session.get(Scrutin, idscrutin)

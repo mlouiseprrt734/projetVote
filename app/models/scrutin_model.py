@@ -8,3 +8,5 @@ class Scrutin(db.Model):
     dateouverture = db.Column(db.Date)
     datecloture = db.Column(db.Date)
     statut = db.Column(db.String(50))
+
+    lieux = db.relationship("Lieu", secondary="autorise", lazy="select")

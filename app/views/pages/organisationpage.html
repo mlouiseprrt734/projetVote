@@ -24,6 +24,13 @@
                             Du {{ scrutin.dateouverture.strftime('%d/%m/%Y') }}
                             au {{ scrutin.datecloture.strftime('%d/%m/%Y') }}
                         </p>
+                        <p>Sur les lieux suivants :</p>
+                        <ul>
+                            {% for lieu in scrutin.lieux %}
+                                <li>{{ lieu.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                        
                         {% if scrutin.statut == 'En cours' %}
                             <span class="inscrits-scrutin" style="background-color: green; border-radius: 5px; padding: 5px; color: white;">{{ scrutin.statut }}</span>
                         {% elif scrutin.statut =='Terminé' %}
