@@ -61,7 +61,7 @@ async function loginWithPasskey() {
         let result = await verifyRes.json();
 
         if (result.verified) {
-            window.location.href = "/ballotpage";
+            window.location.href = "/navigation";
         } else {
             errorElement.innerText = "Échec de l'authentification : " + (result.error || "Inconnue");
         }
