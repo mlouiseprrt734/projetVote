@@ -10,13 +10,13 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__, template_folder="views", static_folder="static")
 
-    #config authentification par passkey
-    load_dotenv()
-    app.secret_key = os.environ.get("FLASK_SECRET_KEY")
-
     # Charge le fichier .env à la racine du projet
     ROOT_DIR = Path(__file__).resolve().parents[1]
     load_dotenv(ROOT_DIR / ".env")
+
+    #config authentification par passkey
+    load_dotenv()
+    app.secret_key = os.environ.get("FLASK_SECRET_KEY")
 
     #config bdd avec variables d'environnement
     db_user = os.getenv("DB_USER")
