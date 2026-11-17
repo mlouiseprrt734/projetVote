@@ -20,8 +20,8 @@
                     <img class="sideicon" src="{{ url_for('static', filename='media/home.png') }}" alt="">Accueil</a>
                 <a href="{{ url_for('main.ballotpage') }}" class="{{ 'active' if request.endpoint == 'main.ballotpage' }}">
                     <img class="sideicon" src="{{ url_for('static', filename='media/document.png') }}" alt="">Mes scrutins</a>
-                <a href="{{ url_for('main.resultspage') }}" class="{{ 'active' if request.endpoint == 'main.resultspage' }}">
-                    <img class="sideicon" src="{{ url_for('static', filename='media/results.png') }}" alt="">Résultats</a>
+                <a href="{{ url_for('main.mes_scrutins_votes') }}" class="{{ 'active' if request.endpoint == 'main.mes_scrutins_votes' }}">
+                     <img class="sideicon" src="{{ url_for('static', filename='media/results.png') }}" alt="">Résultats</a>
                 <hr>
                 <a href="{{ url_for('main.organisationpage') }}" class="{{ 'active' if request.endpoint == 'main.organisationpage' }}">
                     <img class="sideicon" src="{{ url_for('static', filename='media/silhouette.png') }}" alt="">Espace organisateur</a>

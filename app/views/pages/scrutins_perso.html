@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Mes scrutins votés</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="organisationcontainer">
+        <div class="topbar">
+            <a class="backbtn" href="{{ url_for('main.navigation') }}">← Retour</a>
+            <img class="logovoteapp" src="{{ url_for('static', filename='media/logovote.jpg') }}" alt="Logo">
+        </div>
+
+        <h1 class="logintitle1">Mes scrutins votés</h1>
+        <p class="logintxt1">Retrouvez les scrutins auxquels vous avez participé.</p>
+
+        {% if scrutins %}
+            <div class="liste-resultats">
+                {% for scrutin in scrutins %}
+                    <article class="carte-resultat">
+                        <div class="carte-resultat-entete">
+                            <strong>{{ scrutin.type }}</strong>
+                            <span class="statut-bulletin">{{ scrutin.statut }}</span>
+                        </div>
+
+                        <p class="choix-resultat">
+                            Du {{ scrutin.dateouverture.strftime('%d/%m/%Y') }}
+                            au {{ scrutin.datecloture.strftime('%d/%m/%Y') }}
+                        </p>
+
+                        <a class="btn-voir-resultats"
+                            href="{{ url_for('main.resultats_electeur', idscrutin=scrutin.idscrutin) }}">
+                                Voir les résultats
+                        </a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="message-resultats">
+                Vous n'avez encore participé à aucun scrutin.
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

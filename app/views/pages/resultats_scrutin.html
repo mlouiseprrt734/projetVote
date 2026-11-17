@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Résultats - {{ scrutin.type }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="organisationcontainer">
+
+        <div class="topbar">
+            <a class="backbtn" href="{{ url_retour }}">← Retour</a>
+            <img class="logovoteapp" src="{{ url_for('static', filename='media/logovote.jpg') }}" alt="Logo">
+        </div>
+
+        <h1 class="logintitle1">Résultats</h1>
+
+        <div class="detailscrutins">
+            <p>{{ scrutin.type }}</p>
+            <p>
+                Du {{ scrutin.dateouverture.strftime('%d/%m/%Y') if scrutin.dateouverture else 'Non définie' }}
+                au {{ scrutin.datecloture.strftime('%d/%m/%Y') if scrutin.datecloture else 'Non définie' }}
+            </p>
+            <p>Statut : {{ scrutin.statut }}</p>
+        </div>
+
+        <h2 class="titre-resultats">Participation</h2>
+
+        <div class="statistiques-resultats">
+            <strong>Taux de participation : {{ taux_participation }} %</strong>
+            <p>{{ nb_votants }} votants sur {{ total_inscrits }} inscrits</p>
+        </div>
+
+        <h2 class="titre-resultats">
+            {% if scrutin.statut == 'Terminé' %}
+                Résultats du scrutin
+            {% else %}
+                Résultats en temps réel
+            {% endif %}
+        </h2>
+
+        <p class="texte-resultats">
+            {{ total_bulletins }} bulletins enregistrés
+        </p>
+
+        {% if resultats %}
+            <div class="liste-resultats">
+
+                {% for resultat in resultats %}
+                    <article class="carte-resultat">
+
+                        <div class="carte-resultat-entete">
+                            <strong>{{ resultat.libelle }}</strong>
+                            <strong>{{ resultat.pourcentage }} %</strong>
+                        </div>
+
+                        <p class="choix-resultat">
+                            {{ resultat.voix }} voix
+                        </p>
+
+                        <div class="barre-resultat">
+                            <span style="width: {{ resultat.pourcentage }}%"></span>
+                        </div>
+
+                    </article>
+                {% endfor %}
+
+            </div>
+        {% else %}
+            <div class="message-resultats">
+                Aucun bulletin enregistré pour ce scrutin.
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Électeurs - {{ scrutin.type }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="organisationcontainer">
+        <div class="topbar">
+            <a class="backbtn" href="{{ url_for('main.detailscrutin', idscrutin=scrutin.idscrutin) }}">← Retour</a>
+            <img class="logovoteapp" src="{{ url_for('static', filename='media/logovote.jpg') }}" alt="Logo">
+        </div>
+
+        <h1 class="logintitle1">Électeurs</h1>
+
+        <div class="detailscrutins">
+            <p class="date-scrutin">
+                <img src="{{ url_for('static', filename='media/document.png') }}" alt="">
+                {{ scrutin.type }}
+            </p>
+            <p class="date-scrutin">
+                <img src="{{ url_for('static', filename='media/calendrier.png') }}" alt="">
+                Du {{ scrutin.dateouverture.strftime('%d/%m/%Y') if scrutin.dateouverture else 'Non définie' }}
+                au {{ scrutin.datecloture.strftime('%d/%m/%Y') if scrutin.datecloture else 'Non définie' }}
+            </p>
+
+            {% if scrutin.statut == 'En cours' %}
+                <span class="inscrits-scrutin" style="background-color: green; border-radius: 5px; padding: 5px; color: white;">{{ scrutin.statut }}</span>
+            {% elif scrutin.statut == 'Terminé' %}
+                <span class="inscrits-scrutin" style="background-color: red; border-radius: 5px; padding: 5px; color: white;">{{ scrutin.statut }}</span>
+            {% endif %}
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="messages-flash">
+                    {% for categorie, message in messages %}
+                        <p class="message-flash {{ categorie }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="electeurs-toolbar">
+            <h2>Liste des électeurs</h2>
+
+            <details class="electeur-ajout">
+                <summary class="btn-action-principal">+ Ajouter</summary>
+
+                <form class="form-electeur" method="POST"
+                      action="{{ url_for('main.ajouter_electeur', idscrutin=scrutin.idscrutin) }}">
+
+                    <label for="nom-ajout">Nom</label>
+                    <input id="nom-ajout" type="text" name="nom" required>
+
+                    <label for="prenom-ajout">Prénom</label>
+                    <input id="prenom-ajout" type="text" name="prenom" required>
+
+                    <label for="email-ajout">Email (facultatif)</label>
+                    <input id="email-ajout" type="email" name="email">
+
+                    <button class="btn-action-principal" type="submit">Enregistrer</button>
+                </form>
+            </details>
+        </div>
+
+        <div class="recherche-electeur">
+            <input id="recherche-electeur" type="search"
+                   placeholder="⌕ Rechercher un électeur..."
+                   aria-label="Rechercher un électeur">
+        </div>
+
+        <div class="table-electeurs-conteneur">
+            <table class="table-electeurs" id="table-electeurs">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for participation in participations %}
+                        <tr class="ligne-electeur">
+                            <td>{{ participation.electeur.nom }} {{ participation.electeur.prenom }}</td>
+
+                            <td>
+                                {% if participation.avote %}
+                                    <span class="badge-statut statut-a-vote">A voté</span>
+                                {% else %}
+                                    <span class="badge-statut statut-pas-vote">N'a pas voté</span>
+                                {% endif %}
+                            </td>
+
+                            <td class="actions-electeur">
+                                <details>
+                                    <summary>Modifier</summary>
+
+                                    <form method="POST"
+                                          action="{{ url_for('main.modifier_electeur',
+                                          idscrutin=scrutin.idscrutin,
+                                          idelecteur=participation.idelecteur) }}">
+
+                                        <label for="nom-{{ participation.idelecteur }}">Nom</label>
+                                        <input id="nom-{{ participation.idelecteur }}"
+                                               type="text" name="nom"
+                                               value="{{ participation.electeur.nom }}" required>
+
+                                        <label for="prenom-{{ participation.idelecteur }}">Prénom</label>
+                                        <input id="prenom-{{ participation.idelecteur }}"
+                                               type="text" name="prenom"
+                                               value="{{ participation.electeur.prenom }}" required>
+
+                                        <label for="email-{{ participation.idelecteur }}">Email</label>
+                                        <input id="email-{{ participation.idelecteur }}"
+                                               type="email" name="email"
+                                               value="{{ participation.electeur.email or '' }}">
+
+                                        <button class="btn-action-principal" type="submit">
+                                            Enregistrer
+                                        </button>
+                                    </form>
+                                </details>
+
+                                <form method="POST"
+                                      action="{{ url_for('main.supprimer_electeur',
+                                      idscrutin=scrutin.idscrutin,
+                                      idelecteur=participation.idelecteur) }}"
+                                      onsubmit="return confirm('Retirer cet électeur de ce scrutin ?');">
+
+                                    <button type="submit" class="btn-action-suppression">
+                                        Supprimer
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="3" class="aucun-electeur">
+                                Aucun électeur inscrit à ce scrutin.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const rechercheElecteur = document.getElementById("recherche-electeur");
+        const lignesElecteurs = document.querySelectorAll(".ligne-electeur");
+
+        rechercheElecteur.addEventListener("input", function () {
+            const recherche = this.value.toLocaleLowerCase("fr");
+
+            lignesElecteurs.forEach(function (ligne) {
+                ligne.hidden = !ligne.textContent.toLocaleLowerCase("fr").includes(recherche);
+            });
+        });
+    </script>
+</body>
+</html>
